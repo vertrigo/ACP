@@ -2,7 +2,8 @@
 SQLyog Ultimate v8.82 
 MySQL - 5.5.15 : Database - acp
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -12,7 +13,6 @@ MySQL - 5.5.15 : Database - acp
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`u0880315_acp` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 /*Table structure for table `bagreports` */
 
@@ -63,7 +63,7 @@ CREATE TABLE `links` (
 
 /*Data for the table `links` */
 
-insert  into `links`(`id`,`linkname`,`linkstr`,`image`,`gmlevel`) values (1,'WOWHead','http://ru.wowhead.com','images/links/wowhead.gif',0),(2,'RU-Mangos','http://ru-mangos.ru','images/links/rumangos.gif',2),(3,'YTDB','http://www.ytdb.ru','images/links/ytdb.gif',3);
+insert  into `links`(`id`,`linkname`,`linkstr`,`image`,`gmlevel`) values (1,'WOWHead','http://ru.wowhead.com','images/links/wowhead.gif',0),(2,'RU-Mangos','http://ru-mangos.ru','images/links/rumangos.gif',2),(3,'YTDB','http://www.ytdb.ru','images/links/ytdb.gif',2);
 
 /*Table structure for table `log` */
 

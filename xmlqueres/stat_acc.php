@@ -7,7 +7,7 @@ if (isset($_GET['realmdselect']))
     $_SESSION['realmd'] = $_GET['realmdselect'];
 require "../config/realmlist.php";
 require "../config/config.php";
-require "stat_txt." . $encoding . ".php";
+require "stat_txt." . $ampie_encoding . ".php";
 /////////////////
 $old_day = '200';
 /////////////////

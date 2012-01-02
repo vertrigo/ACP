@@ -7,7 +7,7 @@ if (isset($_GET['realmdselect']))
     $_SESSION['realmd'] = $_GET['realmdselect'];
 require "../config/realmlist.php";
 require "../config/config.php";
-require "stat_txt." . $encoding . ".php";
+require "stat_txt." . $ampie_encoding . ".php";
 $c_connect = mysql_connect($c_ip, $c_userdb, $c_pw);
 mysql_select_db($c_db, $c_connect);
 mysql_query("SET NAMES '$encoding'");

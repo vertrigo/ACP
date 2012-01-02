@@ -80,12 +80,14 @@ if (isset($_POST['auth_name']))
         else
             $_SESSION['gnom'] = (int) $row['gmlevel'];
         // Clear login_failed for this IP.
+        $k_connect = mysql_connect($k_ip, $k_userdb, $k_pw);
         $query = 'DELETE FROM `login_failed` WHERE `ip` = "' . $_SERVER['REMOTE_ADDR'] . '"';
         mysql_select_db($k_db, $k_connect);
         mysql_query($query);
         }
     else if ($Block_login == 1)
         {
+        $k_connect = mysql_connect($k_ip, $k_userdb, $k_pw);
         $query = 'insert `login_failed` (`ip`) VALUES ("' . $_SERVER['REMOTE_ADDR'] . '")';
         mysql_select_db($k_db, $k_connect);
         mysql_query($query);

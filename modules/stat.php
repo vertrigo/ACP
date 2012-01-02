@@ -16,13 +16,15 @@ if ($statid == 0)
     {
     // Онлайн сервера
     $koll = 0;
+    $realmid = $_SESSION['realmd'];
+    settype($realmid,'integer');
     $r_connect = mysql_connect($r_ip, $r_userdb, $r_pw);
     mysql_select_db($r_db, $r_connect);
     mysql_query("SET NAMES '$encoding'");
     $fp = @fsockopen($r_ip, "3724", $errno, $errstr, 1);
     if ($fp)
         {
-        $res = mysql_fetch_array(mysql_query("select `starttime`,UNIX_TIMESTAMP(now()) as noww from `uptime` order by `starttime` desc limit 1 "));
+        $res = mysql_fetch_array(mysql_query("select `starttime`,UNIX_TIMESTAMP(now()) as noww from `uptime` where `realmid`='$realmid' order by `starttime` desc limit 1 "));
         $koll = $res['starttime'];
         $noww = $res['noww'];
         $uptime = (int) $noww - (int) $koll;
@@ -47,7 +49,7 @@ if ($statid == 0)
         }
     // MAX Онлайн сервера
     $koll = 0;
-    $res = mysql_fetch_array(mysql_query("select `maxplayers` from `uptime` order by `maxplayers` desc limit 1 "));
+    $res = mysql_fetch_array(mysql_query("select `maxplayers` from `uptime` where `realmid`='$realmid' order by `maxplayers` desc limit 1 "));
     $koll = $res[0];
     if ($koll > 0)
         echo '<tr><td height="35" align="left" valign="middle">' . $txt[290] . '</td>'
@@ -97,7 +99,7 @@ if ($statid == 0)
     $c_connect = mysql_connect($c_ip, $c_userdb, $c_pw);
     mysql_select_db($c_db, $c_connect);
     mysql_query("SET NAMES '$encoding'");
-    $res = mysql_fetch_array(mysql_query("SELECT * FROM `saved_variables`"));
+    @$res = mysql_fetch_array(mysql_query("SELECT * FROM `saved_variables`")); // don't show errors for different server systems
     if ($res['NextArenaPointDistributionTime'] >= time())
         echo '<tr><td height="35" align="left" valign="middle">' . $txt[315] . '</td>'
         . '<td height="35" align="right" valign="middle">' . date('j-n-Y, H:i (D)', $res['NextArenaPointDistributionTime']) . ' </td></tr>';

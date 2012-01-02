@@ -1,0 +1,10 @@
+/*!40101 SET NAMES utf8 */;
+
+DROP TABLE IF EXISTS `login_failed`;
+
+CREATE TABLE `login_failed`
+(
+`ip` varchar(15) NOT NULL DEFAULT '127.0.0.1',
+`login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8

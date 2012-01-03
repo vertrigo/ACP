@@ -154,6 +154,21 @@ if ($_POST['character'] >= 0)
             ReturnMainForm(60);
             }
 //===================
+        if(($_POST['id'] == 8) AND (($money >= $Change_race_price) OR ($_SESSION['gnom'] >= $gm_free_pay)))
+           { //change race
+           echo $txt[359] . '<br><br><hr><br><br>';
+           if ($_SESSION['gnom'] >= $gm_free_pay)
+               $PayMoney = 0;
+           else
+               $PayMoney = $Change_race_price;
+           $res = mysql_query("update `characters` set `at_login` = `at_login` | 64, `money`=`money` - " . $PayMoney . " where `guid` = " . (int) $_POST['character']);
+           if ($res)
+                echo $txt[97] . '<br><br><br><hr><br><br><br>';
+           else
+                echo $txt[99] . '<br><br><br><br>';
+           ReturnMainForm(60);
+           }
+//===================
         if (($_POST['id'] == 3) AND (($money >= $Relocate_price) OR ($_SESSION['gnom'] >= $gm_free_pay)))
             { //change account
             echo ' <form method="POST"><input name="modul" value="charedit" type=hidden>

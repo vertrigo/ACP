@@ -117,6 +117,17 @@ if (isset($_GET['id']) AND ($_GET['id'] > 0) and ($_SESSION['user_id'] > 0))
         else
             echo getGold($Talant_price);
 
+        echo '</td></tr><tr><td width="50" height="30" align="center" valign="middle">';
+        if (($money >= $Talant_price) OR ($_SESSION['gnom'] >= $gm_free_pay))
+            echo "<input name=id type=radio value='8'>";
+        else
+            echo "<img src='images/no.png' align='absmiddle'> ";
+        echo '</td><td width="300" height="30" align="left" valign="middle">' . $txt[358] . '</td><td width="150" height="30" align="right" valign="middle">';
+        if ($_SESSION['gnom'] >= $gm_free_pay)
+            echo $txt[25];
+        else
+            echo getGold($Change_race_price);
+
         echo '</td></tr></table>';
         echo '<br><div align="center"><input type="submit" value="' . $txt[11] . '"></div></form>';
         //-----------------------------

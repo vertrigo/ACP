@@ -82,7 +82,7 @@ $kol = 1;
 $m_connect = mysql_connect($m_ip, $m_userdb, $m_pw);
 mysql_select_db($m_db, $m_connect);
 mysql_query("SET NAMES '$encoding'");
-$query = "SELECT `name`,`help` FROM `command` WHERE `security` = " . $lvl . " order by `name`";
+$query = "SELECT `name`,`help` FROM `command` WHERE `security` <= " . $lvl . " order by `name`";
 $res = mysql_query($query) or trigger_error(mysql_error() . $query);
 while ($mres = mysql_fetch_array($res))
     {

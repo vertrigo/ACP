@@ -123,9 +123,9 @@ if ($statid == 0)
         mysql_select_db($m_db, $m_connect);
         mysql_query("SET NAMES '$encoding'");
         if ($ServerSystem == 1)
-            $res = mysql_fetch_array(mysql_query("select * from `version` "));
+            $res = @mysql_fetch_array(mysql_query("select * from `version` ")); // don't show error if not exist table version... just empty string
         else
-            $res = mysql_fetch_array(mysql_query("select * from `db_version` "));
+            $res = @mysql_fetch_array(mysql_query("select * from `db_version` ")); // don't show error if not exist table db_version... just empty string
         if ($ServerSystem == 1)
             {
             echo '<tr><td height="35" colspan="2" align="left" valign="middle">' . $txt[295] . $res[1] . '</td></tr>';
@@ -138,9 +138,9 @@ if ($statid == 0)
             if (isset($s_ip))
                 {
                 $s_connect = mysql_connect($s_ip, $s_userdb, $s_pw);
-                mysql_select_db($s_db, $s_connect);
+                @mysql_select_db($s_db, $s_connect); // don't show error if not exist scriptdev2 database
                 mysql_query("SET NAMES '$encoding'");
-                $res = mysql_fetch_array(mysql_query("select * from `sd2_db_version` "));
+                $res = @mysql_fetch_array(mysql_query("select * from `sd2_db_version` ")); // don't show error if not exist scriptdev2 table or database... just empty string
                 echo '<tr><td height="35" colspan="2" align="left" valign="middle">' . $txt[297] . $res[0] . '</td></tr>';
                 }
             }

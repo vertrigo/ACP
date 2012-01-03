@@ -8,25 +8,25 @@ $k_userdb = 'root';
 $k_pw     = '12345';
 $k_db     = 'acp';
 
-//realmd
+// realmd/auth
 $r_ip     = '127.0.0.1';     
 $r_userdb = 'root';
 $r_pw     = '12345';
 $r_db     = '335_realmd';
 
-//characters
+// characters
 $c_ip     = $MyRealms[$_SESSION['realmd']]['c_ip'];
 $c_userdb = $MyRealms[$_SESSION['realmd']]['c_userdb'];
 $c_pw     = $MyRealms[$_SESSION['realmd']]['c_pw'];
 $c_db     = $MyRealms[$_SESSION['realmd']]['c_db'];
 
-//mangos
+// mangos/world
 $m_ip     = $MyRealms[$_SESSION['realmd']]['m_ip'];
 $m_userdb = $MyRealms[$_SESSION['realmd']]['m_userdb'];
 $m_pw     = $MyRealms[$_SESSION['realmd']]['m_pw'];
 $m_db     = $MyRealms[$_SESSION['realmd']]['m_db'];
 
-//sd2
+//sd2 (if exist)
 $s_ip     = $MyRealms[$_SESSION['realmd']]['s_ip'];
 $s_userdb = $MyRealms[$_SESSION['realmd']]['s_userdb'];
 $s_pw     = $MyRealms[$_SESSION['realmd']]['s_pw'];

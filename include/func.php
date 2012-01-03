@@ -390,5 +390,27 @@ function soap_send($command, $username, $password, $host, $soapport = 7878)
     return $result;
     }
 
+function ReturnToBT($Retime)
+    {
+    echo '
+<script type="text/javascript"> <!--
+function exec_refresh(){
+  window.status = "reloading..." + myvar;
+  myvar = myvar + " .";
+  var timerID = setTimeout("exec_refresh();", 100);
+  if (timeout > 0){
+  timeout -= 1;
+  }else{
+    clearTimeout(timerID);
+    window.status = "";
+    window.location = "index.php?modul=bagtrack";
+    }
+}
+var myvar = "";
+var timeout = ' . $Retime . ';
+exec_refresh();
+//--> </script>';
+    }
+
 require "include/rev.php";
 ?>

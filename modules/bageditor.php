@@ -10,6 +10,7 @@ if (isset($_POST['cmd']) AND ($_SESSION['gnom'] > 1))
     if (($_POST['cmd'] > 0) AND !isset($_POST['id']) AND ($_POST['cmd'] != 9) AND ($_POST['cmd'] != 10))
         {
         echo $txt[218];
+        ReturnToBT(60);
         } else
         {
         // edit
@@ -60,64 +61,73 @@ if (isset($_POST['cmd']) AND ($_SESSION['gnom'] > 1))
                         }
                         echo '</select><br></td><td width="10" height="30" >&nbsp;</td>';
                         echo '<td width="120" height="30" align="right"><input type="submit" value="' . $txt[182] . '"></td></tr></table></form>';
+                        ReturnToBT(60); 
                        break;
                     case 2:
                         $upd_status = mysql_query("UPDATE `bagreports` SET `status`='1' WHERE (`id`= " . (int) $_POST['id'] . ")");
                         if($upd_status)
-                        echo $txt[97];
+                           echo $txt[97];
                         else
-                        echo $txt[99];
+                           echo $txt[99];
+                        ReturnToBT(60);
                        break;
                     case 3:
                         $rm_report = mysql_query("DELETE FROM `bagreports` WHERE (`id`= " . (int) $_POST['id'] . ")");
                         if($rm_report)
-                        echo $txt[360];
+                           echo $txt[360];
                         else
-                        echo $txt[99];
+                           echo $txt[99];
+                        ReturnToBT(60);
                        break;
                     // case 4: -- Not yet implemented
                     case 5:
                         $upd_status = mysql_query("UPDATE `bagreports` SET `status`='4' WHERE (`id`= " . (int) $_POST['id'] . ")");
                         if($upd_status)
-                        echo $txt[97];
+                           echo $txt[97];
                         else
-                        echo $txt[99];
+                           echo $txt[99];
+                        ReturnToBT(60);
                        break;
                     case 6:
                     case 7:
                         $upd_status = mysql_query("UPDATE `bagreports` SET `status`='5' WHERE (`id`= " . (int) $_POST['id'] . ")");
                         if($upd_status)
-                        echo $txt[97];
+                            echo $txt[97];
                         else
-                        echo $txt[99];
+                            echo $txt[99];
+                        ReturnToBT(60);
                        break;
                     case 8:
                         $upd_status = mysql_query("UPDATE `bagreports` SET `status`='3' WHERE (`id`= " . (int) $_POST['id'] . ")");
                         if($upd_status)
-                        echo $txt[97];
+                            echo $txt[97];
                         else
-                        echo $txt[99];
+                            echo $txt[99];
+                        ReturnToBT(60);
                        break;
                     case 9:
                         $rm_archive = mysql_query("DELETE FROM `bagreports` WHERE `status` = '7'");
                         if($rm_archive)
-                        echo $txt[360];
+                           echo $txt[360];
                         else
-                        echo $txt[99];
+                           echo $txt[99];
+                       ReturnToBT(60);
                        break;
                     case 10:
                         $rm_old = mysql_query("DELETE FROM `bagreports` WHERE `datewrite` < ADDDATE(CURDATE(), INTERVAL -" . $bugold . " DAY)");
                         if($rm_old)
-                        echo $txt[360];
+                           echo $txt[360];
                         else
-                        echo $txt[99];
+                           echo $txt[99];
+                        ReturnToBT(60);
                        break;
                    case 11:
                         $upd_status = mysql_query("UPDATE `bagreports` SET `status`='7' WHERE (`id`= " . (int) $_POST['id'] . ")");
                         if($upd_status)
-                        echo $txt[97];
+                           echo $txt[97];
                         else
-                        echo $txt[99];
+                           echo $txt[99];
+                       ReturnToBT(60);
                        break;
                     }
         // end all commands

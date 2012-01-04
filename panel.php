@@ -32,7 +32,10 @@ if (!isset($_SESSION['user_id']) or ($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
         {
         $ra_id = $row['id'];
         $ra_username = $row['username'];
-        $ra_gmlevel = $txt[70 + $_SESSION['gnom']];
+        if($_SESSION['gnom'] < 5)
+           $ra_gmlevel = $txt[70 + $_SESSION['gnom']];
+        else
+        $ra_gmlevel = $txt[74];
         $ra_email = $row['email'];
         $ra_joindate = $row['joindate'];
         $ra_last_ip = $row['last_ip'];

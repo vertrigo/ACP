@@ -121,7 +121,7 @@ if (isset($_POST['cmd']) AND ($_SESSION['gnom'] > 1))
                            echo $txt[99];
                         ReturnToBT(60);
                        break;
-                   case 11:
+                    case 11:
                         $upd_status = mysql_query("UPDATE `bagreports` SET `status`='7' WHERE (`id`= " . (int) $_POST['id'] . ")");
                         if($upd_status)
                            echo $txt[97];
